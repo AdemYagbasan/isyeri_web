@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Miran Elektrik ve Tesisat</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Güvenilir usta hizmetleri. Elektrik, tesisat, marangozluk ve daha fazlası." />
+  <meta name="keywords" content="elektrik, tesisat, marangoz, Miran Elektrik, usta, İstanbul" />
+  <meta name="author" content="Miran Elektrik ve Tesisat" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-light: #f9fafb;
+      --primary: #1e40af;
+      --secondary: #3b82f6;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --white: #ffffff;
+      --hover-bg: #e0ecff;
+      --card-hover-bg: #3b82f6;
+    }
+   
+
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    header {
+      background-color: var(--white);
+      padding: 20px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo img {
+      width: 160px;
+      height: 100px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 5px 8px rgba(0,0,0,0.15);
+    }
+
+    .logo span {
+      font-weight: 900;
+      font-size: 2rem;
+      color: var(--primary);
+      user-select: none;
+    }
+
+    nav a {
+      margin-left: 50px;
+      text-decoration: none;
+      font-weight: 800;
+      color: var(--text-dark);
+      font-size: 1.7rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(to right, #e0e7ff, #f3f4f6);
+      padding: 60px 10%;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 30px;
+      font-weight: 900;
+    }
+
+    .hero p {
+      color: var(--text-light);
+      font-size: 1.7rem;
+    }
+
+    /* SECTION TITLES */
+    .section {
+      padding: 80px 10%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 40px;
+      color: var(--primary);
+      text-align: center;
+    }
+
+    /* CARDS - Hizmetler, Ustalar */
+    .hizmetler, .ustalar, .galeri {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: var(--white);
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+      width: 240px;
+      text-align: center;
+      cursor: default;
+      transition: all 0.3s ease;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Hizmetler ikon ve metin */
+    .card span {
+      font-size: 36px;
+      color: var(--secondary);
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+
+    /* Card hover efekt: renk ve küçük yukarı hareket */
+    .card:hover {
+      background-color: var(--card-hover-bg);
+      color: var(--white);
+      transform: translateY(-5px);
+    }
+
+    .card:hover span {
+      color: var(--white);
+    }
+
+    /* Ustalar kart arka plan ve renkler - yeni renk ve stil */
+    .ustalar .card.usta {
+      background-color: #dbe9ff; /* Daha açık, pastel mavi */
+      color: #1e40af; /* Koyu mavi, okunaklı */
+      padding: 20px 18px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Usta resmi - fotoğraf tam sığsın, hafif küçültme ve kenar boşluğu */
+    .usta img {
+      width: 140px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: none;
+      border: 2.5px solid #1e40af; /* Koyu mavi ince çerçeve */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Hover efekti - arka plan koyulaşsın, yazı beyazlaşsın, foto çerçeve ve gölge artsın */
+    .usta:hover {
+      background-color: #1e40af;
+      color: #ffffff;
+    }
+
+    .usta:hover img {
+      border-color: #3b82f6;
+      box-shadow: 0 0 25px #3b82f6;
+    }
+
+    /* Usta isim ve meslek renkleri */
+    .usta h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 20px;
+      color: inherit; /* Hover'da da renk değişsin */
+    }
+
+    .usta p {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: inherit;
+    }
+
+
+    /* Galeri resimleri */
+    .galeri img {
+      width: 360px;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 50px;
+      box-shadow: 0 15px 18px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    /* 7/24 Ulaşım butonu */
+    .ulasim-wrapper {
+      text-align: center;
+      margin: 50px 0x;
+    }
+
+    .ulasim-link {
+      display: inline-block;
+      padding: 22px 28px;
+      background-color: var(--primary);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(29, 59, 155, 0.5);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .ulasim-link:hover {
+      background-color: var(--secondary);
+      transform: scale(1.03);
+    } 
+
+ .before-after-gallery {
+  display: flex;
+  flex-direction: column; /* dikey liste */
+  gap: 60px;
+  max-width: 800px; /* genişlik küçültülebilir */
+  margin: 100px auto;
+  padding: 50px 30x;
+}
+
+.before-after-card {
+  display: flex; /* before-after yan yana */
+  gap: 10px;
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 100%; /* parent genişliğine uy */
+  max-width: 1200px; /* max genişlik */
+}
+
+.image-wrapper {
+  position: relative;
+  width: 200%; /* her biri yarı genişlik */
+  height: 480px; /* biraz daha büyük yaptım */
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: rgba(59, 130, 246, 0.85);
+  color: white;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  user-select: none;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.after-label {
+  left: auto;
+  right: 20px;
+  background-color: rgba(30, 64, 175, 0.85);
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Miran Elektrik Logo" />
+      <span>Miran Elektrik ve Tesisat</span>
+    </div>
+    <nav>
+      <a href="{{ url_for('index') }}">Ana Sayfa</a>
+      <a href="{{ url_for('usta', usta_id=1) }}">Ustalarımız</a>
+      <a href="{{ url_for('iletisim') }}">İletişim</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Usta işçilik, Güvenli hizmet</h1>
+    <p>Elektrik, tesisat, boya ve badana , dekorasyon ve daha fazlası için bize ulaşın</p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Hizmetlerimiz</h2>
+    <div class="hizmetler">
+      <div class="card"><span>🔌</span>Elektrik Tesisatı</div>
+      <div class="card"><span>🚿</span>Su Tesisatı</div>
+      <div class="card"><span>📡</span>Çanak Anten</div>
+      <div class="card"><span>🎨</span>Boya Badana</div>
+      <div class="card"><span>🧱</span>Fayans Döşeme</div>
+    </div>
+  </section>
+
+<section class="ulasim-wrapper">
+  <a href="tel:05444930181" class="ulasim-link">
+    📞 7/24 Ulaşım ve Acil Servis Hizmeti
+  </a>
+</section>
+
+
+
+  <section class="section">
+    <h2 class="section-title">Ustalarımız</h2>
+    <div class="ustalar">
+      {% for usta in ustalar %}
+        <a href="{{ url_for('usta', usta_id=usta.id) }}" style="text-decoration:none; color:inherit;">
+          <div class="card usta">
+            <img src="{{ url_for('static', filename=usta.resim) }}" alt="{{ usta.isim }}" />
+            <h3>{{ usta.isim }}</h3>
+            <p><em>{{ usta.meslek }}</em></p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  <section class="section">
+  <h2 class="section-title">Önce & Sonra</h2>
+  <div class="before-after-gallery">
+
+    <!-- 1. çift -->
+    <div class="before-after-card">
+      <div class="image-wrapper">
+        <img src="{{ url_for('static', filename='images/before1.jpeg') }}" alt="Önce 1" />
+        <div class="label before-label">Önce</div>
+      </div>
+      <div class="image-wrapper">
+        <img src="{{ url_for('static', filename='images/after1.jpeg') }}" alt="Sonra 1" />
+        <div class="label after-label">Sonra</div>
+      </div>
+    </div>
+
+    <!-- 2. çift -->
+    <div class="before-after-card">
+      <div class="image-wrapper">
+        <img src="{{ url_for('static', filename='images/before2.jpeg') }}" alt="Önce 2" />
+        <div class="label before-label">Önce</div>
+      </div>
+      <div class="image-wrapper">
+        <img src="{{ url_for('static', filename='images/after2.jpeg') }}" alt="Sonra 2" />
+        <div class="label after-label">Sonra</div>
+      </div>
+    </div>
+
+    <!-- Devamı buraya eklenebilir -->
+
+  </div>
+</section>
+
+
+  <footer>
+    <p>Adres: Türkiye, İstanbul</p>
+    <p>Telefon: 0544 493 01 81 | E-posta: info@miran.com</p>
+  </footer>
+
+</body>
+</html>
